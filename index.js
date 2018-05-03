@@ -57,17 +57,17 @@ function displaySequence (index) {
     }, 1000 - intervalDecrease)
 }
 
-function processClick (element) {
+function processClick () {
     if (!waitingPlayerAnswer) {
         return;
     }
     
-    playerAnswers.push(element);
-    element.classList.add('active');
+    playerAnswers.push(this);
+    this.classList.add('active');
     
     setTimeout(() => {
-        element.classList.remove('active');
-    }, 250)
+        this.classList.remove('active');
+    }, 250);
     
     if (playerAnswers.length === roundAnswers.length) {
         waitingPlayerAnswer = false;
@@ -89,19 +89,21 @@ function processAnswers () {
         }
     }
     
-    canStartRound = true;
-    
     if (allCorrect) {
         controlElement.style.cursor = 'pointer';
         controlElement.style.backgroundColor = 'green';
         
-        controlStatusElement.innerHTML = 'Continuar';
+        controlStatusElement.innerHTML = 'Acertou!';
+
+        setTimeout(() => {callRound()}, 500);
     }
     else {
         controlElement.style.cursor = 'pointer';
         controlElement.style.backgroundColor = 'red';
         
         controlStatusElement.innerHTML = 'Recomeçar';
+
+        canStartRound = true;
     }
 
     score = (allCorrect) ? score + 1 : score;
@@ -144,19 +146,17 @@ controlElement.onclick = () => {
         
         canStartRound = false;
     }
-}
+};
 
 window.onload = () => {
     for (let element of buttonElements) {
-        element.onclick = () => {
-            processClick(element);
-        }
+        element.onclick = processClick;
         
         element.onmouseenter = () => {
             if (waitingPlayerAnswer && !element.classList.contains('active')) {
                 element.classList.add('hover');
             }
-        }
+        };
 
         element.onmouseleave = () => {
             if (waitingPlayerAnswer && !element.classList.contains('active')) {
@@ -164,4 +164,4 @@ window.onload = () => {
             }
         }
     }
-}
+};
