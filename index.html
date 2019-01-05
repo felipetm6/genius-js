@@ -9,30 +9,37 @@
     <script defer src="index.js"></script>
 </head>
 <body>
-    <section id="game">
-        <div class="clickable" id="yellow"></div>
-        <div class="clickable" id="blue"></div>
-        
-        <div class="clickable" id="red"></div>
-        <div class="clickable" id="green"></div>
+<main>
+    <section class="game">
+        <div class="clickable top-left round-corner" id="yellow"></div>
+        <div class="clickable top-right round-corner" id="blue"></div>
 
-        <section id="hud">
-            <div>
-                <p>Pontuaçāo Atual</p>
-                <p id="score">0</p>
-            </div>
+        <div class="clickable bottom-left round-corner" id="red"></div>
+        <div class="clickable bottom-right round-corner" id="green"></div>
 
-            <div id="control">
+        <div class="control-container perfect-center">
+            <div class="control perfect-center">
+                <div class="background">
+
+                </div>
                 <p>
                     Começar
                 </p>
             </div>
-
-            <div>
-                <p>Maior pontuaçāo</p>
-                <p id="high-score">0</p>
-            </div>
-        </section>
+        </div>
     </section>
+
+    <section class="hud">
+        <div>
+            <p>Pontuaçāo Atual</p>
+            <p class="score">0</p>
+        </div>
+
+        <div>
+            <p>Maior pontuaçāo</p>
+            <p class="high-score">0</p>
+        </div>
+    </section>
+</main>
 </body>
 </html>

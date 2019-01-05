@@ -1,27 +1,89 @@
 body {
+    font-family: sans-serif;
     margin: 0;
 }
 
-#game {
-    margin: 0 auto;
-    
-    width: 620px;
-
+.game {
+    align-items: center;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background-color: #282e3a;
     display: flex;
     flex-wrap: wrap;
+    height: 50vw;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 5%;
+    position: relative;
+    width: 50vw;
 }
 
 .clickable {
-    margin: 5px;
-
-    width: 300px;
-    height: 300px;
-
-    border-radius: 5px;
-
+    height: 45%;
     opacity: 0.25;
+    transition: 0.75s;
+    width: 45%;
+}
 
-    transition: 0.75;
+.top-left.round-corner {
+    border-radius: 100% 5px 5px;
+}
+
+.top-right.round-corner {
+    border-radius: 5px 100% 5px 5px;
+}
+
+.bottom-left.round-corner {
+    border-radius: 5px 5px 5px 100%;
+}
+
+.bottom-right.round-corner {
+    border-radius: 5px 5px 100% 5px;
+}
+
+.perfect-center {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.control-container {
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+}
+
+.control {
+    background-color: #282e3a;
+    border-radius: 100px;
+    cursor: pointer;
+    height: 25%;
+    margin: 10px 0;
+    position: relative;
+    width: 25%;
+}
+
+.control .background {
+    background-color: green;
+    border-radius: 100px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 80%;
+    pointer-events: initial;
+    position: absolute;
+    width: 80%;
+}
+
+.control p {
+    pointer-events: none;
+    position: relative;
+    text-align: center;
+    z-index: 1;
 }
 
 .hover {
@@ -32,41 +94,15 @@ body {
     opacity: 1;
 }
 
-#hud {
-    margin: 0 auto;
-
-    width: inherit;
-
+.hud {
     display: flex;
-
     justify-content: space-between;
+    margin: 30px auto;
+    width: 50vw;
 }
 
-#control {
-    margin: 10px 0;
-
-    width: 80px;
-    height: 80px;
-
-    border-radius: 100px;
-    
-    background-color: green;
-
-    cursor: pointer;
-}
-
-#control p {
-    margin: auto;
-    margin-top: 40%;
-
-    text-align: center;
-
-    pointer-events: none;
-}
-
-#score, #high-score {
+.score, .high-score {
     margin: 0 auto;
-
     text-align: center;
 }
 
