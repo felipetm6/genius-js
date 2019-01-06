@@ -3,18 +3,28 @@ body {
     margin: 0;
 }
 
+main {
+    background-color: #2c3147;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 10px;
+    width: 100vw;
+}
+
 .game {
     align-items: center;
+    background-color: #282e3a;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
-    background-color: #282e3a;
     display: flex;
     flex-wrap: wrap;
     height: 50vw;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    padding: 5%;
+    justify-content: space-around;
+    margin: 30px auto;
+    padding: 1.5%;
     position: relative;
     width: 50vw;
 }
@@ -99,6 +109,18 @@ body {
     justify-content: space-between;
     margin: 30px auto;
     width: 50vw;
+}
+
+.hud div {
+    background-color: #21273a;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.hud div p {
+    color: lightblue;
 }
 
 .score, .high-score {

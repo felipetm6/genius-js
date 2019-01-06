@@ -23,7 +23,7 @@ function callRound() {
 
     controlElement.style.cursor = 'auto';
     controlElement.style.backgroundColor = 'yellow';
-    controlStatusElement.innerHTML = 'Observe';
+    controlStatusElement.innerHTML = 'OBSERVE';
 
     const loopLimit = difficulty - roundAnswers.length;
 
@@ -52,7 +52,7 @@ function displaySequence(index) {
                 waitingPlayerAnswer = true;
 
                 controlElement.style.backgroundColor = 'lightblue';
-                controlStatusElement.innerHTML = 'Reproduza';
+                controlStatusElement.innerHTML = 'REPRODUZA';
 
                 toggleButtonsCursorStyle();
             }
@@ -96,7 +96,7 @@ function processAnswers() {
         controlElement.style.cursor = 'pointer';
         controlElement.style.backgroundColor = 'green';
 
-        controlStatusElement.innerHTML = 'Acertou!';
+        controlStatusElement.innerHTML = 'ACERTOU!';
 
         setTimeout(() => {
             callRound()
@@ -105,7 +105,7 @@ function processAnswers() {
         controlElement.style.cursor = 'pointer';
         controlElement.style.backgroundColor = 'red';
 
-        controlStatusElement.innerHTML = 'Recomeçar';
+        controlStatusElement.innerHTML = 'RECOMEÇAR';
 
         canStartRound = true;
     }
