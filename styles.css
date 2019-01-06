@@ -96,6 +96,10 @@ main {
     z-index: 1;
 }
 
+.control p, .hud div p {
+    font-size: 0.55rem;
+}
+
 .hover {
     opacity: 0.5;
 }
@@ -106,16 +110,17 @@ main {
 
 .hud {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 30px auto;
     width: 50vw;
 }
 
 .hud div {
-    background-color: #21273a;
+    background-color: #293046;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
+    margin: 0 1vw;
     padding: 15px;
 }
 
@@ -142,4 +147,46 @@ main {
 
 #blue {
     background-color: blue;
+}
+
+@media (min-width: 768px) {
+    .control p, .hud div p {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 992px) {
+    main {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .game {
+        height: 40vw;
+        margin: 0 35px 0 0;
+        width: 40vw;
+    }
+
+    .control p, .hud div p {
+        font-size: 0.9rem;
+    }
+
+    .hud {
+        align-items: center;
+        flex-direction: column;
+        margin: 0 0 0 35px;
+        justify-content: space-around;
+        width: 250px;
+    }
+
+    .hud div {
+        margin: 60px 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .control p, .hud div p {
+        font-size: 1.1rem;
+    }
 }
