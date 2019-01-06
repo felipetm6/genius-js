@@ -2,7 +2,7 @@
 
 [Live Version](https://felipetm6.github.io/genius-js/)
 
-A Javascript version of Genius created to test programming logic skills, specially developed for a course I've helped the instructors with at [Mastertech](mastertech.tech).
+A Javascript version of Genius created to test programming logic skills, specially developed for a course I've helped the instructors with at [Mastertech](mastertech.tech). I've further developed it after the course as a part of a project I have started called 'JS Games', where I train logic skills developing a set of simple games using only HTML, CSS and Javascript.
 
 ## How to play?
 
@@ -12,7 +12,7 @@ Press `Start` and memorize the following sequence. After the whole sequence is p
 
 [Versão Online](https://felipetm6.github.io/genius-js/)
 
-Uma versão de Genius feita em Javascript criada para testar lógica de programação utilizando esta linguagem, especialmente desenvolvida para um curso que ajudei os instrutores na [Mastertech](mastertech.tech).
+Uma versão de Genius feita em Javascript criada para testar lógica de programação utilizando esta linguagem, especialmente desenvolvida para um curso que ajudei os instrutores na [Mastertech](mastertech.tech). Eu continuei o desenvolvimento após o curso como parte de um projeto que iniciei chamado 'JS Games', onde eu pratico habilidades de lógica desenvolvendo um grupo de jogos simples usando somente HTML, CSS e Javascript.
 
 ## Como jogar?
 
