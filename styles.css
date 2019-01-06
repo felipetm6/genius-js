@@ -25,6 +25,10 @@ main {
     justify-content: center;
 }
 
+.night-mode-transition {
+    transition: 1s;
+}
+
 /* Container */
 .container {
     height: 100vh;
