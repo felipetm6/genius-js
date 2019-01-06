@@ -18,25 +18,7 @@ const getRandomValueAtArray = (array) => {
     return array[Math.floor(Math.random() * array.length)];
 };
 
-function callRound() {
-    playerAnswers = [];
-
-    controlElement.style.cursor = 'auto';
-    controlElement.style.backgroundColor = 'yellow';
-    controlStatusElement.innerHTML = 'OBSERVE';
-
-    const loopLimit = difficulty - roundAnswers.length;
-
-    for (let i = 0; i < loopLimit; i++) {
-        const randomValue = getRandomValueAtArray(buttonElements);
-
-        roundAnswers.push(randomValue);
-    }
-
-    displaySequence(0);
-}
-
-function displaySequence(index) {
+const displaySequence = (index) => {
     const element = roundAnswers[index];
 
     setTimeout(() => {
@@ -58,29 +40,48 @@ function displaySequence(index) {
             }
         }, 1000 - intervalDecrease)
     }, 1000 - intervalDecrease)
-}
+};
 
-function processClick() {
-    if (!waitingPlayerAnswer) {
-        return;
+const callRound = () => {
+    playerAnswers = [];
+
+    controlElement.style.cursor = 'auto';
+    controlElement.style.backgroundColor = 'yellow';
+    controlStatusElement.innerHTML = 'OBSERVE';
+
+    const loopLimit = difficulty - roundAnswers.length;
+
+    for (let i = 0; i < loopLimit; i++) {
+        const randomValue = getRandomValueAtArray(buttonElements);
+
+        roundAnswers.push(randomValue);
     }
 
-    playerAnswers.push(this);
-    this.classList.add('active');
+    displaySequence(0);
+};
 
-    setTimeout(() => {
-        this.classList.remove('active');
-    }, 250);
-
-    if (playerAnswers.length === roundAnswers.length) {
-        waitingPlayerAnswer = false;
-
-        toggleButtonsCursorStyle();
-        processAnswers();
+const toggleButtonsCursorStyle = () => {
+    for (let element of buttonElements) {
+        element.style.cursor = element.style.cursor === 'pointer' ? 'auto' : 'pointer';
     }
-}
+};
 
-function processAnswers() {
+const revampDifficulty = (toIncrease) => {
+    if (toIncrease) {
+        difficulty++;
+        intervalDecrease = (intervalDecrease < 800) ? intervalDecrease + 10 : intervalDecrease;
+    } else {
+        difficulty = 4;
+        intervalDecrease = 0;
+    }
+};
+
+const updateScore = () => {
+    scoreElement.innerHTML = score;
+    highScoreElement.innerHTML = highScore;
+};
+
+const processAnswers = () => {
     let allCorrect = true;
 
     for (let i in roundAnswers) {
@@ -116,28 +117,27 @@ function processAnswers() {
 
     updateScore();
     revampDifficulty(allCorrect);
-}
+};
 
-function revampDifficulty(toIncrease) {
-    if (toIncrease) {
-        difficulty++;
-        intervalDecrease = (intervalDecrease < 800) ? intervalDecrease + 10 : intervalDecrease;
-    } else {
-        difficulty = 4;
-        intervalDecrease = 0;
+const processClick = (element) => {
+    if (!waitingPlayerAnswer) {
+        return;
     }
-}
 
-function toggleButtonsCursorStyle() {
-    for (let element of buttonElements) {
-        element.style.cursor = element.style.cursor === 'pointer' ? 'auto' : 'pointer';
+    playerAnswers.push(element);
+    element.classList.add('active');
+
+    setTimeout(() => {
+        element.classList.remove('active');
+    }, 250);
+
+    if (playerAnswers.length === roundAnswers.length) {
+        waitingPlayerAnswer = false;
+
+        toggleButtonsCursorStyle();
+        processAnswers();
     }
-}
-
-function updateScore() {
-    scoreElement.innerHTML = score;
-    highScoreElement.innerHTML = highScore;
-}
+};
 
 controlElement.onclick = () => {
     if (canStartRound) {
@@ -148,7 +148,9 @@ controlElement.onclick = () => {
 };
 
 for (let element of buttonElements) {
-    element.onclick = processClick;
+    element.onclick = () => {
+        processClick(element);
+    };
 
     element.onmouseenter = () => {
         if (waitingPlayerAnswer && !element.classList.contains('active')) {
