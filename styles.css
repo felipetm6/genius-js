@@ -1,3 +1,5 @@
+/* HTML Tags */
+
 body {
     background-color: #2c3147;
     font-family: 'Montserrat', sans-serif;
@@ -13,6 +15,18 @@ main {
     padding: 10px;
     width: 100vw;
 }
+
+/* General */
+
+.perfect-center {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Game */
 
 .game {
     align-items: center;
@@ -52,14 +66,6 @@ main {
     border-radius: 5px 5px 100% 5px;
 }
 
-.perfect-center {
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    justify-content: center;
-}
-
 .control-container {
     height: 100%;
     pointer-events: none;
@@ -96,10 +102,6 @@ main {
     z-index: 1;
 }
 
-.control p, .hud div p {
-    font-size: 0.55rem;
-}
-
 .hover {
     opacity: 0.5;
 }
@@ -107,6 +109,8 @@ main {
 .active {
     opacity: 1;
 }
+
+/* HUD */
 
 .hud {
     display: flex;
@@ -133,6 +137,8 @@ main {
     text-align: center;
 }
 
+/* Footer */
+
 footer {
     bottom: 0;
     position: absolute;
@@ -143,6 +149,14 @@ footer p, footer a {
     text-align: center;
     width: 100vw;
 }
+
+/* Typography */
+
+.control p, .hud div p {
+    font-size: 0.55rem;
+}
+
+/* Coloring */
 
 #red {
     background-color: red;
@@ -160,6 +174,7 @@ footer p, footer a {
     background-color: blue;
 }
 
+/* Media Queries */
 @media (min-width: 768px) {
     .control p, .hud div p {
         font-size: 0.75rem;
