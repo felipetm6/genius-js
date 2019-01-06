@@ -62,7 +62,7 @@ const callRound = () => {
 
 const toggleButtonsCursorStyle = () => {
     for (let element of buttonElements) {
-        element.style.cursor = element.style.cursor === 'pointer' ? 'auto' : 'pointer';
+        element.style.cursor = element.style.cursor === 'pointer' ? '' : 'pointer';
     }
 };
 
@@ -78,10 +78,14 @@ const revampDifficulty = (toIncrease) => {
 
 const updateScore = () => {
     scoreElement.innerHTML = score;
-    highScoreElement.innerHTML = highScore;
+    highScoreElement.innerHTML = (highScore > 0) ? highScore : '-';
 };
 
 const processAnswers = () => {
+    waitingPlayerAnswer = false;
+
+    toggleButtonsCursorStyle();
+
     let allCorrect = true;
 
     for (let i in roundAnswers) {
@@ -97,22 +101,23 @@ const processAnswers = () => {
         controlElement.style.cursor = 'pointer';
         controlElement.style.backgroundColor = 'green';
 
-        controlStatusElement.innerHTML = 'ACERTOU!';
+        controlStatusElement.innerHTML = 'ACERTOU';
 
         setTimeout(() => {
             callRound()
-        }, 500);
+        }, 1500);
     } else {
         controlElement.style.cursor = 'pointer';
         controlElement.style.backgroundColor = 'red';
 
         controlStatusElement.innerHTML = 'RECOMEÇAR';
 
+        highScore = (score > highScore) ? score : highScore;
+
         canStartRound = true;
     }
 
     score = (allCorrect) ? score + 1 : score;
-    highScore = (score > highScore) ? score : highScore;
     score = (allCorrect) ? score : 0;
 
     updateScore();
@@ -129,12 +134,11 @@ const processClick = (element) => {
 
     setTimeout(() => {
         element.classList.remove('active');
-    }, 250);
+    }, 750);
 
-    if (playerAnswers.length === roundAnswers.length) {
-        waitingPlayerAnswer = false;
+    const i = playerAnswers.length - 1;
 
-        toggleButtonsCursorStyle();
+    if (playerAnswers[i] !== roundAnswers[i] || playerAnswers.length === roundAnswers.length) {
         processAnswers();
     }
 };
