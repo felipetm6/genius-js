@@ -3,6 +3,8 @@ const controlElement = document.querySelector('.control .background');
 const controlStatusElement = document.querySelector('.control p');
 const scoreElement = document.querySelector('.score');
 const highScoreElement = document.querySelector('.high-score');
+const container = document.querySelector('.container');
+const nightModeButton = document.querySelector('.night-mode-button');
 
 let roundAnswers = [];
 let playerAnswers = [];
@@ -149,6 +151,11 @@ controlElement.onclick = () => {
 
         canStartRound = false;
     }
+};
+
+nightModeButton.onclick = () => {
+  container.classList.toggle('night-mode');
+  container.classList.toggle('day-mode');
 };
 
 for (let element of buttonElements) {
